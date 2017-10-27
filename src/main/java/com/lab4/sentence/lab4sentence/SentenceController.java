@@ -12,7 +12,10 @@ import org.springframework.web.client.RestTemplate;
 import java.net.URI;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
+@Slf4j
 public class SentenceController {
 
     @Autowired
@@ -35,6 +38,7 @@ public class SentenceController {
         if (list != null && list.size() > 0 ) {
             URI uri = list.get(0).getUri();
             if (uri !=null ) {
+                log.debug("********************* Uri is " + uri.toString());
                 return (new RestTemplate()).getForObject(uri,String.class);
             }
         }

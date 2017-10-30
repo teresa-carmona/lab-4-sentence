@@ -38,7 +38,6 @@ public class SentenceController {
         if (list != null && list.size() > 0 ) {
             URI uri = list.get(0).getUri();
             if (uri !=null ) {
-                log.debug("********************* Uri is " + uri.toString());
                 return (new RestTemplate()).getForObject(uri,String.class);
             }
         }
